@@ -5,11 +5,11 @@ import AddMovie from './AddMovie.jsx';
 
 // import React
 const movies = [
-    {title: 'Mean Girls', watch: true},
-    {title: 'Hackers', watch: true},
-    {title: 'The Grey', watch: true},
-    {title: 'Sunshine', watch: true},
-    {title: 'Ex Machina', watch: true}
+    {title: 'Mean Girls', watch: true, year: 1987, runtime: 90, metascore: 45, imdbRating: 7.8, isHidden: true},
+    {title: 'Hackers', watch: true, year: 1977, runtime: 70, metascore: 72, imdbRating: 7.8, isHidden: true},
+    {title: 'The Grey', watch: true, year: 2006, runtime: 80, metascore: 39, imdbRating: 7.8, isHidden: true},
+    {title: 'Sunshine', watch: true, year: 1972, runtime: 40, metascore: 48, imdbRating: 7.8, isHidden: true},
+    {title: 'Ex Machina', watch: true, year: 2010, runtime: 50, metascore: 65, imdbRating: 7.8, isHidden: true}
   ];
   
 class App extends React.Component {
@@ -30,7 +30,7 @@ class App extends React.Component {
     addMovie(movieInput) {
         let newMovie = this.state.movies;
         console.log(newMovie);
-        newMovie.push({title: movieInput, watch: true})
+        newMovie.push({title: movieInput, watch: true, isHidden: true})
         this.setState({
             movies: newMovie
         })
