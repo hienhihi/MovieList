@@ -7,7 +7,11 @@ const MovieListItem = (props) => {
             <span>
             {props.movie.title}
             </span>
-            <span><ToggleWatchButton /></span>
+            <span><ToggleWatchButton 
+            movie={props.movie} 
+            watched={props.watched}
+            toWatch={props.toWatch}/>
+            </span>
         </div>
     )
 }

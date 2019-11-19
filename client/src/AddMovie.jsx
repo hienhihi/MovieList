@@ -16,7 +16,7 @@ class AddMovie extends React.Component {
     }
     submitMovie(event) {
         event.preventDefault();
-        this.props.addFunc(this.state.item)
+        this.props.addFunc(this.state.item);
     }
     render () {
         return (

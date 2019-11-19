@@ -1,25 +1,31 @@
 import React from 'react';
+import MovieListItem from './MovieListItem.jsx';
 
 class ToggleWatchButton extends React.Component{
     constructor(props) {
         super(props)
-        this.state = {
-            isToggle: false
-        }
+       this.state = {
+           watching: this.props.movie.watch
+       }
         this.toggleButton = this.toggleButton.bind(this);
     }
     toggleButton(event) {
         event.preventDefault();
-        console.log('hello');
+        var current = this.state.watching;
         this.setState({
-            isToggle: !isToggle
-        })
+            watching: !current
+        });
+        if (current === false) {
+            this.props.watched(this.props.movie);
+        } else {
+            this.props.toWatch(this.props.movie);
+        }
     }
     render() {
         return (
             <div>
-                <form >
-                    {this.state.isToggle === true ? <button onSubmit={this.toggleButton}>To Watch</button> : <button onSubmit={this.toggleButton}>Watched</button> }                
+                <form>
+                    <button onClick={this.toggleButton}>{this.state.watching === true ? 'To Watch' : 'Watched'}</button>                
                 </form>
             </div>
         )
@@ -27,3 +33,4 @@ class ToggleWatchButton extends React.Component{
 }
 
 export default ToggleWatchButton;
+//if watch = to watch, display to watch, if not, display watched
